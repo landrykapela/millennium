@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_live"
+            android:contentDescription="@string/live_button"
+            android:padding="@dimen/default_padding"
+            android:layout_width="@dimen/large_icon"
+            android:layout_height="@dimen/large_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_live_stream" />
+
+        <ImageView
+            android:id="@+id/iv_vod"
+            android:contentDescription="@string/vod_button"
+            android:layout_width="@dimen/large_icon"
+            android:layout_height="@dimen/large_icon"
+            android:layout_marginStart="32dp"
+            android:padding="@dimen/default_padding"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_live"
+            app:layout_constraintStart_toEndOf="@+id/iv_live"
+            app:srcCompat="@mipmap/ic_vod" />
+
+        <ImageView
+            android:id="@+id/iv_library"
+            android:contentDescription="@string/library_button"
+            android:layout_width="@dimen/large_icon"
+            android:layout_height="@dimen/large_icon"
+            android:padding="@dimen/default_padding"
+            app:layout_constraintStart_toStartOf="@+id/iv_vod"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile"
+            app:srcCompat="@mipmap/ic_library" />
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:contentDescription="@string/profile_button"
+            android:layout_width="@dimen/large_icon"
+            android:layout_height="@dimen/large_icon"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="72dp"
+            android:padding="@dimen/default_padding"
+            app:layout_constraintEnd_toEndOf="@+id/iv_live"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/iv_live"
+            app:layout_constraintTop_toBottomOf="@+id/iv_live"
+            app:srcCompat="@mipmap/ic_profile" />
+
+        <TextView
+            android:id="@+id/tv_live_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/live_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_live"
+            app:layout_constraintStart_toStartOf="@+id/iv_live"
+            app:layout_constraintTop_toBottomOf="@+id/iv_live" />
+
+        <TextView
+            android:id="@+id/tv_vod_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vod_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_vod"
+            app:layout_constraintStart_toStartOf="@+id/iv_vod"
+            app:layout_constraintTop_toBottomOf="@+id/iv_vod" />
+
+        <TextView
+            android:id="@+id/tv_library_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/library_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_library"
+            app:layout_constraintStart_toStartOf="@+id/iv_library"
+            app:layout_constraintTop_toBottomOf="@+id/iv_library" />
+
+        <TextView
+            android:id="@+id/tv_profile_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
