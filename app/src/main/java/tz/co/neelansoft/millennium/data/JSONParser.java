@@ -1,5 +1,7 @@
 package tz.co.neelansoft.millennium.data;
 
+import android.graphics.Bitmap;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,5 +97,9 @@ public class JSONParser {
 
         }
         return course;
+    }
+
+    public Bitmap getThumbnailFromPdfUrl(String pdf_url){
+
     }
 }

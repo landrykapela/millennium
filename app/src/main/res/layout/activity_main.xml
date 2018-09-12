@@ -14,6 +14,7 @@
 
 
         <ImageView
+            android:background="@drawable/drawable_box"
             android:id="@+id/iv_live"
             android:contentDescription="@string/live_button"
             android:padding="@dimen/default_padding"
@@ -25,6 +26,7 @@
 
         <ImageView
             android:id="@+id/iv_vod"
+            android:background="@drawable/drawable_box"
             android:contentDescription="@string/vod_button"
             android:layout_width="@dimen/large_icon"
             android:layout_height="@dimen/large_icon"
@@ -36,6 +38,7 @@
 
         <ImageView
             android:id="@+id/iv_library"
+            android:background="@drawable/drawable_box"
             android:contentDescription="@string/library_button"
             android:layout_width="@dimen/large_icon"
             android:layout_height="@dimen/large_icon"
@@ -46,6 +49,7 @@
 
         <ImageView
             android:id="@+id/iv_profile"
+            android:background="@drawable/drawable_box"
             android:contentDescription="@string/profile_button"
             android:layout_width="@dimen/large_icon"
             android:layout_height="@dimen/large_icon"

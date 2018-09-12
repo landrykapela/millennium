@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void launchActivity(String activityName){
         try{
-            Class<?> destination = Class.forName(getPackageName().concat(activityName));
+            Class<?> destination = Class.forName(getPackageName().concat(".").concat(activityName));
             startActivity(new Intent(MainActivity.this,destination));
         }
         catch (ClassNotFoundException e){
