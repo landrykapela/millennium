@@ -4,20 +4,70 @@ import android.graphics.Bitmap;
 
 public class Book {
     private int id;
+    private int edition;
+    private int pages;
+    private int year;
     private String title;
     private String author;
     private String filename;
-    private Bitmap thumbnail;
+    private String publisher;
+    private String theme;
+    private String thumbnailUrl;
 
     public Book() {
     }
 
-    public Book(int id, String title, String author, String filename, Bitmap thumbnail) {
+    public int getEdition() {
+        return edition;
+    }
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setEdition(int edition) {
+        this.edition = edition;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public Book(int id, String title, String author, String filename, String publisher, String theme, int edition, int year, int pages, String thumbnailUrl) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.filename = filename;
-        this.thumbnail = thumbnail;
+        this.publisher = publisher;
+        this.theme = theme;
+        this.edition = edition;
+        this.year = year;
+        this.pages = pages;
+        this.thumbnailUrl = thumbnailUrl;
+
     }
 
     public int getId() {
@@ -52,11 +102,11 @@ public class Book {
         this.filename = filename;
     }
 
-    public Bitmap getThumbnail() {
-        return thumbnail;
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
     }
 
-    public void setThumbnail(Bitmap thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }

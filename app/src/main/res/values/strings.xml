@@ -7,10 +7,11 @@
     <string name="title_vod">VOD</string>
     <string name="live_title">Live Stream</string>
     <string name="vod_title">VOD</string>
-    <string name="library_title">LIbrary</string>
+    <string name="library_title">Books</string>
     <string name="profile_title">Profile</string>
     <string name="vod_button">Button for Video on Demand</string>
     <string name="live_button">Button for Live Streaming</string>
     <string name="library_button">Button for Library</string>
     <string name="profile_button">Button for User Profile</string>
+    <string name="book_thumbnail">Book thumbnail</string>
 </resources>
