@@ -14,4 +14,9 @@
     <string name="library_button">Button for Library</string>
     <string name="profile_button">Button for User Profile</string>
     <string name="book_thumbnail">Book thumbnail</string>
+    <string name="welcome_text">Please Select an Activity to Proceed</string>
+    <string name="search_hint">Enter a keyword</string>
+    <string name="comment_hint">comment...</string>
+    <string name="label_watching">Currently Watching</string>
+    <string name="send">Send</string>
 </resources>

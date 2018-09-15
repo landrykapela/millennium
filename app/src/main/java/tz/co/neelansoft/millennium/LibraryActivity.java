@@ -9,7 +9,14 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +33,7 @@ import tz.co.neelansoft.millennium.data.BookAdapter;
 import tz.co.neelansoft.millennium.data.Config;
 import tz.co.neelansoft.millennium.data.JSONParser;
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity implements BookAdapter.OnClickListener{
 
     private static final String TAG = "LibraryActivity";
     private static final String BOOK_KEY = "books";
@@ -49,17 +56,36 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_library);
-        bookAdapter = new BookAdapter(this);
+
+        bookAdapter = new BookAdapter(this,this);
         recyclerView = findViewById(R.id.recyclerview);
+
         LinearLayoutManager layout = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(layout);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(bookAdapter);
         new BooksLoader().execute();
+
     }
 
+    @Override
+    public void onClick(int itemId){
+        Toast.makeText(this,"Clicked Id: "+itemId,Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.library_activity,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem){
+        int menuItemId = menuItem.getItemId();
+        if(menuItemId == R.id.app_bar_search){
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
     public class BooksLoader extends AsyncTask<String,Void,String> {
         List<Book> bookList = new ArrayList<>();
         @Override

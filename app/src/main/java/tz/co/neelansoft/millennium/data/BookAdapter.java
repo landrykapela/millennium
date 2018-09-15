@@ -20,9 +20,9 @@ import tz.co.neelansoft.millennium.R;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     String TAG = "BookAdapter";
-   List<Book> bookList = new ArrayList<>();
-   Context context;
-
+    List<Book> bookList = new ArrayList<>();
+    Context context;
+    private OnClickListener mClickListener;
     @Override
     public long getItemId(int position) {
         return 0;
@@ -37,8 +37,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         return bookList.get(position);
     }
 
-    public BookAdapter(Context context) {
+    public BookAdapter(Context context, OnClickListener listener) {
         this.context = context;
+        this.mClickListener = listener;
     }
 
     public void setBookList(List<Book> books){
@@ -61,9 +62,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         holder.bind(position);
     }
 
+    public interface OnClickListener{
+        void onClick(int itemId);
+    }
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imageThumbnail;
         TextView tvTitle;
@@ -81,6 +84,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             tvPublisher  = itemView.findViewById(R.id.tvPublisher);
             tvTheme  = itemView.findViewById(R.id.tvTheme);
             tvYear = itemView.findViewById(R.id.tvYear);
+
+            itemView.setOnClickListener(this);
         }
 
         public void bind(int position){
@@ -99,6 +104,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             tvPublisher.setText(book.getPublisher());
             tvTheme.setText(book.getTheme());
             tvYear.setText(String.valueOf(book.getYear()));
+        }
+
+        @Override
+        public void onClick(View view){
+            int itemId = bookList.get(getAdapterPosition()).getId();
+            mClickListener.onClick(itemId);
         }
     }
 }

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LibraryActivity" android:parentActivityName=".MainActivity" android:theme="@style/AppTheme" android:label="@string/library_title"/>
+        <activity android:name=".LibraryActivity" android:parentActivityName=".MainActivity" android:theme="@style/AppTheme" android:label="@string/library_title" android:launchMode="singleInstance"/>
         <activity android:name=".VodActivity" android:parentActivityName=".MainActivity" android:theme="@style/AppTheme" android:label="@string/title_vod"/>
         <activity android:name=".LiveActivity" android:parentActivityName=".MainActivity" android:theme="@style/AppTheme" android:label="@string/live_title"/>
         <activity android:name=".ProfileActivity" android:parentActivityName=".MainActivity" android:theme="@style/AppTheme" android:label="@string/profile_title"/>
