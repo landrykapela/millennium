@@ -1,11 +1,13 @@
 package tz.co.neelansoft.millennium.data;
 
+import android.support.annotation.NonNull;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Comment {
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM YYYY HH:mm:ss",Locale.getDefault());
+public class Comment{
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss",Locale.getDefault());
     private int id;
     private String user;
     private String body;
@@ -48,8 +50,14 @@ public class Comment {
     public String getDate() {
         return dateFormat.format(date);
     }
+    public void setDate(String date){
+        Date myDate = new Date(date);
+        this.date = myDate;
+    }
 
+/*
     public void setDate(Date date) {
         this.date = date;
     }
+    */
 }
