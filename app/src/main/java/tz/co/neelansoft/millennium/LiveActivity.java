@@ -73,15 +73,15 @@ public class LiveActivity extends AppCompatActivity {
         connections.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Connection connection = dataSnapshot.getValue(Connection.class);
-                connection1.setId(connection.getId());
-                connection1.setCurrent(connection.getCurrent()+1);
-                connection1.setTotal(connection.getTotal()+1);
+//                Connection connection = dataSnapshot.getValue(Connection.class);
+               // connection1.setId(connection.getId());
+                //connection1.setCurrent(connection.getCurrent()+1);
+                //connection1.setTotal(connection.getTotal()+1);
 
-                Log.e(TAG,"current: "+connection1.getCurrent());
-                Log.e(TAG,"connections: "+connection1.getCurrent()+"/"+connection1.getTotal());
-                connections.setValue(connection1);
-                mTextConnections.setText(String.valueOf(connection1.getCurrent()));
+                //Log.e(TAG,"current: "+connection1.getCurrent());
+                //Log.e(TAG,"connections: "+connection1.getCurrent()+"/"+connection1.getTotal());
+                //connections.setValue(connection1);
+                //mTextConnections.setText(String.valueOf(connection1.getCurrent()));
             }
 
             @Override

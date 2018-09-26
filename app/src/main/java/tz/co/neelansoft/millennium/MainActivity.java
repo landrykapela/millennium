@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private ImageView mImageLive;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //retrieving image buttons
         mImageLibrary  =  findViewById(R.id.iv_library);
@@ -63,6 +66,15 @@ public class MainActivity extends AppCompatActivity {
         mImageLive.setOnClickListener(listener);
     }
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if(auth.getCurrentUser() == null){
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
+        }
+    }
     private void launchActivity(String activityName){
         try{
             Class<?> destination = Class.forName(getPackageName().concat(".").concat(activityName));

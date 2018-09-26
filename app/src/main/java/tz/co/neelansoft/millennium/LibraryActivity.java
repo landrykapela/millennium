@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -50,7 +51,8 @@ public class LibraryActivity extends AppCompatActivity implements BookAdapter.On
 
     private RecyclerView recyclerView;
     private BookAdapter bookAdapter;
-
+    private
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,7 @@ public class LibraryActivity extends AppCompatActivity implements BookAdapter.On
 
         bookAdapter = new BookAdapter(this,this);
         recyclerView = findViewById(R.id.recyclerview);
+        progressBar  = findViewById(R.id.progressBar);
 
         LinearLayoutManager layout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layout);
@@ -94,6 +97,7 @@ public class LibraryActivity extends AppCompatActivity implements BookAdapter.On
             try{
                 URL librayUrl = new URL(Config.BOOKS_URL);
                 String jsonString = jsonParser.getJSONFromURL(librayUrl);
+                Log.e(TAG,jsonString);
                 try{
                     JSONObject jo = new JSONObject(jsonString);
                     JSONArray books = jo.getJSONArray(BOOK_KEY);
@@ -135,11 +139,16 @@ public class LibraryActivity extends AppCompatActivity implements BookAdapter.On
         }
         @Override
         protected void onPostExecute(String s){
+            progressBar.setVisibility(View.GONE);
             bookAdapter.setBookList(bookList);
         }
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
+
+            progressBar.setIndeterminate(true);
+            progressBar.setVisibility(View.VISIBLE);
+
         }
     }
 }

@@ -9,7 +9,7 @@ public class Connection {
     private String id;
     private String startTime;
     private String endTime;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM YYYY HH:mm:ss", Locale.getDefault());
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss", Locale.getDefault());
 
     public Connection(String id, String startTime, String endTime) {
         this.id = id;

@@ -19,4 +19,11 @@
     <string name="comment_hint">comment...</string>
     <string name="label_watching">Currently Watching</string>
     <string name="send">Send</string>
+    <string name="email_password_text">Enter your email and password</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="show">show</string>
+    <string name="signin">Signin</string>
+    <string name="signup">Signup</string>
+    <string name="signin_with_google">Signin With Google</string>
 </resources>
