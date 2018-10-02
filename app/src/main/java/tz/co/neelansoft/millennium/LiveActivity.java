@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,9 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,6 +54,7 @@ public class LiveActivity extends AppCompatActivity {
     private DatabaseReference mFirebaseDatabase;
     List<Comment> commentList = new ArrayList<>();
     CommentsAdapter adapter;
+    FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -65,29 +70,59 @@ public class LiveActivity extends AppCompatActivity {
         mTextConnections = findViewById(R.id.tvWatching);
 
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(Config.FIREBASE_DB_REFERENCE).child("comments");
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        final FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
 
         mLiveView.setVideoURI(Uri.parse(Config.LIVE_STREAM_URL));
 
-        final DatabaseReference connections = FirebaseDatabase.getInstance().getReference(Config.FIREBASE_DB_REFERENCE).child("connections");
+        final DatabaseReference watching = FirebaseDatabase.getInstance().getReference(Config.FIREBASE_DB_REFERENCE).child("onlineusers");
+        watching.child(currentUser.getUid()).setValue(1);
         final Connection connection1 = new Connection();
-        connections.addListenerForSingleValueEvent(new ValueEventListener() {
+        watching.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                Connection connection = dataSnapshot.getValue(Connection.class);
-               // connection1.setId(connection.getId());
-                //connection1.setCurrent(connection.getCurrent()+1);
-                //connection1.setTotal(connection.getTotal()+1);
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                //Log.e(TAG,"current: "+connection1.getCurrent());
-                //Log.e(TAG,"connections: "+connection1.getCurrent()+"/"+connection1.getTotal());
-                //connections.setValue(connection1);
-                //mTextConnections.setText(String.valueOf(connection1.getCurrent()));
+                int count = 1;
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    if(ds.getValue() == (Integer)1) {
+                        mTextConnections.setText(String.valueOf(count));
+                        count++;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                int count = 1;
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    if(ds.getValue() == (Integer)1) {
+                        mTextConnections.setText(String.valueOf(count));
+                        count++;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                int count = 1;
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    if(ds.getValue() == (Integer)1) {
+                        mTextConnections.setText(String.valueOf(count));
+                        count++;
+                    }
+                }
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
 
         mLiveView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -118,7 +153,7 @@ public class LiveActivity extends AppCompatActivity {
                 int id = adapter.getItemCount()+1;
                 String body = mEditComment.getText().toString();
                 Date date = new Date();
-                Comment comment = new Comment(id,"anonymous",body,date);
+                Comment comment = new Comment(id,generate_username(currentUser),body,date);
                 commentList.add(comment);
                 adapter.setCommentList(commentList);
                 mEditComment.setText("");
@@ -175,5 +210,12 @@ public class LiveActivity extends AppCompatActivity {
         inputManager.hideSoftInputFromWindow(
                 this.getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+    private String generate_username(FirebaseUser user){
+        String username = user.getDisplayName();
+        if (username == null || username.isEmpty() || username.equalsIgnoreCase("")) {
+            username = user.getEmail().split("@")[0];
+        }
+        return username;
     }
 }

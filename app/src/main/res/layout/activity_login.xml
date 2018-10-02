@@ -1,127 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_right_end"
-        android:layout_marginStart="@dimen/margin_left_start"
-        android:layout_marginTop="36dp"
-        android:text="@string/email_password_text"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
-    <EditText
-        android:id="@+id/etSignInEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/edit_text_padding"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_right_end"
+            android:layout_marginStart="@dimen/margin_left_start"
+            android:layout_marginTop="36dp"
+            android:text="@string/email_password_text"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etSignInPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_left_start"
-        android:layout_marginLeft="@dimen/margin_right_end"
-        android:layout_marginRight="@dimen/margin_left_start"
-        android:layout_marginStart="@dimen/margin_right_end"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="@dimen/edit_text_padding"
-        app:layout_constraintEnd_toEndOf="@+id/etSignInEmail"
-        app:layout_constraintStart_toStartOf="@+id/etSignInEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etSignInEmail"/>
+        <EditText
+            android:id="@+id/etSignInEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:textColor="@android:color/white"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/edit_text_padding"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignInError" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:buttonTint="@android:color/white"
-        android:text="@string/show"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="@+id/etSignInPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etSignInPassword"
-        tools:ignore="UnusedAttribute" />
+        <EditText
+            android:id="@+id/etSignInPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:textColor="@android:color/white"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="@dimen/edit_text_padding"
+            app:layout_constraintEnd_toEndOf="@+id/etSignInEmail"
+            app:layout_constraintStart_toStartOf="@+id/etSignInEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etSignInEmail" />
 
-    <TextView
-        android:id="@+id/tvSignInError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="@dimen/margin_right_end"
-        android:layout_marginLeft="@dimen/margin_left_start"
-        android:layout_marginRight="@dimen/margin_right_end"
-        android:layout_marginStart="@dimen/margin_left_start"
-        android:text=""
-        android:textColor="@color/color_error"
-        app:layout_constraintBottom_toTopOf="@+id/etSignInEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.411" />
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:buttonTint="@android:color/white"
+            android:text="@string/show"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@+id/etSignInPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etSignInPassword"
+            tools:ignore="UnusedAttribute" />
 
-    <Button
-        android:id="@+id/btnSignInWithEmailAndPassword"
-        android:layout_width="@dimen/button_width_wide"
-        android:layout_height="@dimen/button_height_wide"
-        android:layout_marginTop="72dp"
-        android:background="@color/colorSecondaryText"
-        android:enabled="false"
-        android:paddingEnd="@dimen/padding_button_right"
-        android:paddingStart="@dimen/padding_button_left"
-        android:text="@string/signin"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        <TextView
+            android:id="@+id/tvSignInError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_right_end"
+            android:layout_marginStart="@dimen/margin_left_start"
+            android:layout_marginTop="24dp"
+            android:text=""
+            android:textColor="@color/color_error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/btnSignupWithEmailAndPassword"
-        android:layout_width="@dimen/button_width_wide"
-        android:layout_height="@dimen/button_height_wide"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:text="@string/signup"
-        android:textAllCaps="true"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnGoogleSignIn"
-        app:layout_constraintStart_toStartOf="@+id/btnGoogleSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn" />
+        <Button
+            android:id="@+id/btnSignInWithEmailAndPassword"
+            android:layout_width="@dimen/button_width_wide"
+            android:layout_height="@dimen/button_height_wide"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/drawable_box_white"
+            android:enabled="true"
+            android:paddingEnd="@dimen/padding_button_right"
+            android:paddingStart="@dimen/padding_button_left"
+            android:text="@string/signin"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@+id/etSignInPassword"
+            app:layout_constraintStart_toStartOf="@+id/etSignInPassword"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
+        <TextView
+            android:id="@+id/btnSignupWithEmailAndPassword"
+            android:layout_width="@dimen/button_width_wide"
+            android:layout_height="@dimen/button_height_wide"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/signup"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnSignInWithEmailAndPassword"
+            app:layout_constraintStart_toStartOf="@+id/btnSignInWithEmailAndPassword"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignInWithEmailAndPassword" />
+        <!--
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogleSignIn"
         android:layout_width="@dimen/button_width_wide"
@@ -133,23 +129,23 @@
         app:colorScheme="auto"
         app:layout_constraintStart_toStartOf="@+id/btnSignInWithEmailAndPassword"
         app:layout_constraintTop_toBottomOf="@+id/btnSignInWithEmailAndPassword" />
+!-->
+        <ProgressBar
+            android:id="@+id/progressBarSignIn"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="@dimen/margin_right_end"
+            android:layout_marginLeft="@dimen/margin_left_start"
+            android:layout_marginRight="@dimen/margin_right_end"
+            android:layout_marginStart="@dimen/margin_left_start"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/etSignInEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBarSignIn"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="@dimen/margin_right_end"
-        android:layout_marginLeft="@dimen/margin_left_start"
-        android:layout_marginRight="@dimen/margin_right_end"
-        android:layout_marginStart="@dimen/margin_left_start"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/etSignInEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>

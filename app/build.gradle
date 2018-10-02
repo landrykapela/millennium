@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'millennium'
+            keyPassword '100%5tr0N9'
+            storeFile file('/Users/landre/Android/jks/millennium')
+            storePassword '100%5tr0N9'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "tz.co.neelansoft.millennium"

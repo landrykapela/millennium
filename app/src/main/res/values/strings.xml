@@ -14,7 +14,8 @@
     <string name="library_button">Button for Library</string>
     <string name="profile_button">Button for User Profile</string>
     <string name="book_thumbnail">Book thumbnail</string>
-    <string name="welcome_text">Please Select an Activity to Proceed</string>
+    <string name="welcome_text">Hi, </string>
+    <string name="verify_email">please verify your e-mail to proceed</string>
     <string name="search_hint">Enter a keyword</string>
     <string name="comment_hint">comment...</string>
     <string name="label_watching">Currently Watching</string>
@@ -26,4 +27,23 @@
     <string name="signin">Signin</string>
     <string name="signup">Signup</string>
     <string name="signin_with_google">Signin With Google</string>
+    <string name="web_key">AIzaSyD3zdyj8uOroT4PNW25_C5GG0CfpnB8PEQ</string>
+    <string name="login_error_msg">Unable to login now</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_account">Create Account</string>
+    <string name="signup_head">Create New Account</string>
+    <string name="title_email_confirm">Account Confirmation</string>
+    <string name="confirm_email">Please Confirm your email address</string>
+    <string name="confirm_now">Confirm Now</string>
+    <string name="cancel">Cancel</string>
+    <string name="signout">Signout</string>
+    <string name="share">Share</string>
+    <string name="about">About</string>
+    <string name="confirm_signout">Confirm Signout</string>
+    <string name="confirm_signout_message">This will end your current session</string>
+    <string name="logo">Millennium Logo</string>
+    <string name="company_name">Millennium Digital Services Ltd</string>
+    <string name="developer">Landry Kapela</string>
+    <string name="year">2018</string>
+    <string name="sharelink">http://neelansoft.co.tz</string>
 </resources>

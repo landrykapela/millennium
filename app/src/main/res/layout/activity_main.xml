@@ -9,16 +9,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/wide_margin"
-        android:layout_marginBottom="@dimen/wide_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/tvHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_text" />
+        android:layout_marginBottom="@dimen/wide_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/wide_margin"
+        android:gravity="center"
+        android:text="@string/welcome_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_marginBottom="@dimen/wide_margin"
